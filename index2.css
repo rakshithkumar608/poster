@@ -1,0 +1,338 @@
+/* General Styles */
+body {
+    margin: 50px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4; /* Fallback background color */
+    background-image: url('bc.jpg'); /* Replace with your coffee shop background image */
+    background-size: cover;
+    background-position: center;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    margin-left: 5px;
+}
+/* Logo Styles */
+.coffee {
+    position: fixed;         /* Keeps the logo fixed at the top-left, even when scrolling */
+    top: 20px;               /* Margin from the top */
+    left: 20px;              /* Margin from the left */
+    
+    width: 150px;             /* Width of the logo */
+    height: 100px;            /* Height to make it a perfect square for round shape */
+    
+     border-radius: 50%;     
+    object-fit: cover;       /* Ensures the image fits well inside the circle without distortion */
+    
+     border: 3px solid #fff;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  Subtle shadow for a 3D effect */
+    
+    transition: transform 0.3s ease-in-out;  /* Smooth transition effect on hover */
+    cursor: pointer;         /* Changes cursor to pointer when hovered */
+}
+
+/* Hover Effect */
+.coffee:hover {
+    transform: scale(1.1);  /* Slight zoom-in effect when hovered */
+}
+
+.heading{
+    position: absolute;
+    top: 20px; /* Adjusts the heading towards the top */
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 10px 20px;
+    font-size: 48px;
+    font-family: 'Georgia', serif;
+    color: #6f4e37; /* Coffee Brown */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    border-radius: 20px;
+    animation: slideDown 1s ease-out, glow 2s infinite alternate;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    z-index: 10; /* Ensures it's on top */ 
+}
+
+@keyframes slideDown {
+    from {
+        top: -100px;
+        opacity: 0;
+    }
+    to {
+        top: 20px;
+        opacity: 1;
+    }
+}
+
+/* Subtle Glowing Effect */
+@keyframes glow {
+    from {
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), 0 0 10px #f2500b;
+    }
+    to {
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), 0 0 20px #f2500b, 0 0 30px #f2500b;
+    }
+}
+
+
+/* Poster Container */
+.poster {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    height: 400px;
+    perspective: 1000px; /* For 3D flip effect */
+     transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+     
+}
+
+/* Front and Back Sides */
+.front, .back {
+      position: absolute;
+    width: 100%;
+    height: 100%;
+     backface-visibility: hidden; 
+     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box; 
+    background-color: #fff; 
+     background-image: url('ba.avif'); /* Add a subtle texture */
+      background-blend-mode: overlay;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
+    transition: transform 0.6s ease-in-out; /* Smooth flip transition */
+    transform-style: preserve-3d;
+} 
+
+/* Front Side */
+.front {
+    transform: rotateY(0deg);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(245, 245, 245, 0.9)), url('poster.jpg');
+}
+
+/* Back Side */
+.back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, rgba(214, 125, 16, 0.9), rgba(117, 10, 153, 0.9)), url('p3.jpg');
+    
+}
+
+/* Flipping the Poster */
+.poster.flipped .front {
+    transform: rotateY(-180deg);
+}
+
+.poster.flipped .back {
+    transform: rotateY(0deg);
+}
+
+
+/* Text Styles */
+.text3 {
+    font-size: 60px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:  #125f60;
+    text-align: center;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: float 3s ease-in-out infinite;
+}
+
+.text {
+    font-size: 40px;
+    color: #f7006c ;
+    font-style: oblique;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.text1 {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #5B2333;
+    text-align: center;
+    margin: 10px 0;
+    line-height: 1.5;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.text2 {
+    font-size: 18px;
+    color: #750a99;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin: 10px 0;
+    line-height: 1.5;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styles */
+button {
+    display: block;
+    width: 200px;
+    padding: 10px;
+    border-radius: 50px;
+    background-color: #f2500b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 20px auto;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background-color: #0bca3a;
+    transform: scale(1.05);
+}
+
+
+
+/* Floating Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* @media (max-width: 768px) {
+    .heading {
+        font-size: 36px;
+    }
+    .text3 {
+        font-size: 40px;
+    }
+    .text {
+        font-size: 30px;
+    }
+    .text1 {
+        font-size: 18px;
+    }
+    .text2 {
+        font-size: 16px;
+    }
+    button {
+        width: 150px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .heading {
+        font-size: 24px;
+    }
+    .text3 {
+        font-size: 30px;
+    }
+    .text {
+        font-size: 24px;
+    }
+    .text1 {
+        font-size: 16px;
+    }
+    .text2 {
+        font-size: 14px;
+    }
+    button {
+        width: 120px;
+        font-size: 12px;
+    }
+} */
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    body {
+        margin: 20px;
+    }
+
+    .coffee {
+        width: 100px;
+        height: 70px;
+        top: 10px;
+        left: 10px;
+    }
+
+    .heading {
+        font-size: 36px;
+        padding: 8px 16px;
+        top: 10px;
+    }
+    .poster {
+        max-width: 90%;
+        height: 300px;
+    }
+
+    .text3 {
+        font-size: 40px;
+    }
+
+    .text {
+        font-size: 30px;
+    }
+
+    .text1 {
+        font-size: 16px;
+    }
+
+    .text2 {
+        font-size: 14px;
+    }
+
+    button {
+        width: 150px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .coffee {
+        width: 80px;
+        height: 60px;
+    }
+
+    .heading {
+        font-size: 28px;
+        padding: 6px 12px;
+    }
+
+    .poster {
+        height: 250px;
+    }
+    .text3 {
+        font-size: 32px;
+    }
+
+    .text {
+        font-size: 24px;
+    }
+
+    .text1 {
+        font-size: 14px;
+    }
+
+    .text2 {
+        font-size: 12px;
+    }
+
+    button {
+        width: 120px;
+        font-size: 12px;
+    }
+} 
